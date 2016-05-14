@@ -8,7 +8,7 @@ Let's you `await` or call `.then()` on the `.emit()` method, allowing you to exe
 
 ```js
 await function fn() {
-  let event = new EventEmitterAsPromised()
+  let event = new EventAsPromised()
 
   event.on('customerAdd', (data) => {
     let status = {'added': true}
