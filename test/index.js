@@ -1,5 +1,5 @@
-import Promise from 'bluebird'
 import assert from 'assert'
+import delay from 'delay'
 import EventAsPromised from '../src/index.js'
 
 describe('EventAsPromised', () => {
@@ -12,7 +12,7 @@ describe('EventAsPromised', () => {
       run[0] = true
       assert.deepEqual(data, {'name': 'Thomas'})
       let status = {'added': true}
-      return Promise.resolve(status).delay(10)
+      return Promise.resolve(status).then(delay(10))
     })
 
     assert.equal(run[0], false)
@@ -33,7 +33,7 @@ describe('EventAsPromised', () => {
       run[0] = true
       assert.deepEqual(data, {'name': 'Thomas'})
       let status = {'added': true}
-      return Promise.resolve(status).delay(10)
+      return Promise.resolve(status).then(delay(10))
     })
 
     assert.deepEqual(run, [false, false])
@@ -42,7 +42,7 @@ describe('EventAsPromised', () => {
       run[1] = true
       assert.deepEqual(data, {'name': 'Thomas'})
       let status = {'added': false}
-      return Promise.resolve(status).delay(10)
+      return Promise.resolve(status).then(delay(10))
     })
 
     assert.deepEqual(run, [false, false])

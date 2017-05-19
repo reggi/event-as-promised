@@ -1,4 +1,3 @@
-import Promise from 'bluebird'
 import { EventEmitter } from 'events'
 
 export default class EventAsPromised extends EventEmitter {
